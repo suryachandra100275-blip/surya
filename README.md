@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -272,7 +273,7 @@
 
 
         /* ===================================================================
-           PROCESS FLOW STYLING (VISUAL BARU + ANIMASI CHECK)
+           PROCESS FLOW STYLING 
         =================================================================== */
         .process-flow {
             display: flex;
@@ -282,15 +283,14 @@
             padding-top: 50px; 
             margin-top: 40px;
         }
-        /* Garis Progress yang lebih tebal dan berwarna */
         .process-flow::before {
             content: '';
             position: absolute;
             top: 65px; 
             left: 10%;
             right: 10%;
-            height: 6px; /* Lebih tebal */
-            background: linear-gradient(to right, #e0e0e0, var(--secondary-color), #e0e0e0); /* Gradien abu-kuning */
+            height: 6px; 
+            background: linear-gradient(to right, #e0e0e0, var(--secondary-color), #e0e0e0); 
             border-radius: 3px;
             z-index: 1; 
         }
@@ -302,27 +302,23 @@
             padding: 10px;
             transition: transform 0.3s ease-in-out;
         }
-        /* Efek angkat saat hover */
         .step:hover {
             transform: translateY(-8px);
         }
         .step-icon {
             width: 80px; 
             height: 80px;
-            /* Ubah latar belakang ikon menjadi gradien */
             background: linear-gradient(135deg, var(--primary-color) 0%, #007bff 100%); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto 15px auto;
-            /* Bayangan ikon lebih dramatis */
             box-shadow: 0 8px 25px rgba(0, 74, 153, 0.4); 
-            border: 6px solid var(--bg-white); /* Border sedikit lebih tebal */
+            border: 6px solid var(--bg-white); 
             transition: all 0.3s;
         }
         .step:nth-child(even) .step-icon {
-            /* Mengubah warna ikon genap menjadi secondary color untuk variasi */
             background: linear-gradient(135deg, var(--secondary-color) 0%, #ffc107 100%);
             box-shadow: 0 8px 25px rgba(255, 183, 0, 0.5); 
         }
@@ -347,7 +343,7 @@
         }
         @keyframes pulse-check {
             0% { transform: scale(1); }
-            50% { transform: scale(1.15); color: var(--success-color); } /* Berdetak dan highlight warna */
+            50% { transform: scale(1.15); color: var(--success-color); } 
             100% { transform: scale(1); }
         }
 
@@ -412,6 +408,37 @@
 
 
         /* ===================================================================
+           FOOTER & FAB WA STYLES (DIPERBAIKI)
+        =================================================================== */
+        footer {
+            background-color: var(--primary-color); 
+            color: white; 
+            padding: 30px 20px; 
+            font-size: 1em; 
+            text-align: center; 
+            margin-top: 40px; 
+            border-radius: 15px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: var(--secondary-color); 
+            text-decoration: none;
+            font-weight: 700; 
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #ffd866; 
+            text-decoration: underline;
+        }
+        
+        .fab-container {position: fixed; bottom: 20px; right: 20px; z-index: 1000;}
+        .fab {display: block; width: 60px; height: 60px; background-color: var(--success-color); color: white; border-radius: 50%; text-align: center; line-height: 60px; font-size: 2.2em; box-shadow: 0 4px 15px rgba(32, 142, 67, 0.6); transition: transform 0.3s ease;}
+        .fab:hover {transform: scale(1.15); }
+
+
+        /* ===================================================================
            RESPONSIVE MOBILE DESIGN (Max 768px)
         =================================================================== */
         @media (max-width: 768px) {
@@ -452,10 +479,10 @@
                 top: 0;
                 left: 30px; 
                 bottom: 0;
-                width: 6px; /* Lebih tebal */
+                width: 6px; 
                 right: auto;
                 height: 100%;
-                background: linear-gradient(to bottom, #e0e0e0, var(--secondary-color), #e0e0e0); /* Gradien vertikal */
+                background: linear-gradient(to bottom, #e0e0e0, var(--secondary-color), #e0e0e0); 
             }
             .step {
                 flex-basis: 100%;
@@ -480,14 +507,13 @@
             
             /* FAB WA */
             .fab { width: 50px; height: 50px; line-height: 50px; font-size: 1.8em; }
+
+            /* Footer Responsive */
+            footer {
+                padding: 20px 15px;
+                font-size: 0.9em;
+            }
         }
-        /* ===================================================================
-           FOOTER & FAB WA STYLES
-        =================================================================== */
-        footer {background-color: var(--primary-color); color: white; padding: 20px 0; font-size: 0.9em; text-align: center; margin-top: 40px; border-radius: 15px;}
-        .fab-container {position: fixed; bottom: 20px; right: 20px; z-index: 1000;}
-        .fab {display: block; width: 60px; height: 60px; background-color: var(--success-color); color: white; border-radius: 50%; text-align: center; line-height: 60px; font-size: 2.2em; box-shadow: 0 4px 15px rgba(32, 142, 67, 0.6); transition: transform 0.3s ease;}
-        .fab:hover {transform: scale(1.15); }
     </style>
 </head>
 <body>

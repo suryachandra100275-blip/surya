@@ -33,7 +33,11 @@
             line-height: 1.6; 
             scroll-behavior: smooth;
         }
-        .container {max-width: 1100px; margin: 40px auto; padding: 0 25px;}
+        .container {
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 25px;
+        }
         .section {
             background-color: var(--bg-white); 
             padding: 60px; 
@@ -64,6 +68,7 @@
             display: flex;
             justify-content: space-between; 
             align-items: center;
+            flex-direction: row; 
         }
         .nav-links {
             display: flex;
@@ -79,8 +84,6 @@
             position: relative;
             transition: color 0.3s;
         }
-        
-        /* Styling Logo Teks (Pengganti Gambar) */
         .navbar-logo {
             font-size: 1.6em;
             font-weight: 800; 
@@ -98,23 +101,11 @@
             font-size: 1.2em;
             color: var(--secondary-color);
         }
-        
         @media (min-width: 769px) {
              .navbar-content {
-                justify-content: center; 
-                flex-direction: column;
+                justify-content: space-between; 
+                flex-direction: row;
                 gap: 10px;
-            }
-            .navbar-logo {
-                margin-bottom: 5px; 
-            }
-        }
-        @media (max-width: 768px) {
-            .navbar-content {
-                flex-direction: column;
-            }
-            .nav-links {
-                margin-top: 10px;
             }
         }
 
@@ -133,6 +124,28 @@
         .header-content h1 {
             margin-top: 0; 
         }
+
+        /* WARANTY BOX */
+        .warranty-box {
+            padding: 20px 40px;
+            margin-bottom: 40px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 183, 0, 0.3);
+            text-align: center;
+        }
+        .warranty-box h3 {
+            margin: 0 0 5px 0;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5em;
+        }
+        .warranty-box p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
 
         /* LAYANAN GRID DAN ANIMASI */
         .layanan-grid {
@@ -172,8 +185,6 @@
         .layanan-item:hover i {
             color: var(--secondary-color); 
         }
-        
-        /* Styling Tombol CTA Besar di Bawah Layanan */
         .layanan-cta-button {
             display: block;
             width: fit-content;
@@ -190,20 +201,18 @@
             box-shadow: 0 8px 20px rgba(32, 142, 67, 0.4);
             transition: background-color 0.3s, transform 0.3s;
         }
-
         .layanan-cta-button:hover {
             background-color: #179c3f; 
             transform: scale(1.05); 
         }
         
         /* ===================================================================
-           PRICE SECTION STYLING (IMPROVED TABS)
+           PRICE SECTION STYLING
         =================================================================== */
         .price-tabs-container { 
             text-align: center;
             margin-bottom: 30px;
         }
-        
         .price-tab-button {
             padding: 10px 25px;
             margin: 0 5px 15px 5px;
@@ -218,20 +227,17 @@
             text-transform: uppercase;
             outline: none; 
         }
-
         .price-tab-button:hover {
             background-color: var(--primary-color);
             color: white;
             box-shadow: 0 4px 10px rgba(0, 74, 153, 0.2);
         }
-
         .price-tab-button.active {
             background-color: var(--primary-color);
             color: white;
             box-shadow: 0 4px 15px rgba(0, 74, 153, 0.4);
             transform: translateY(-2px);
         }
-        
         .price-content {
             display: none;
             overflow-x: auto; 
@@ -239,7 +245,6 @@
         .price-content.active {
             display: block;
         }
-        
         .price-content table {
             margin: 0 auto; 
             max-width: 800px;
@@ -267,7 +272,7 @@
 
 
         /* ===================================================================
-           PROCESS FLOW STYLING (VISUAL)
+           PROCESS FLOW STYLING (VISUAL BARU + ANIMASI CHECK)
         =================================================================== */
         .process-flow {
             display: flex;
@@ -277,14 +282,16 @@
             padding-top: 50px; 
             margin-top: 40px;
         }
+        /* Garis Progress yang lebih tebal dan berwarna */
         .process-flow::before {
             content: '';
             position: absolute;
             top: 65px; 
             left: 10%;
             right: 10%;
-            height: 4px;
-            background-color: var(--secondary-color);
+            height: 6px; /* Lebih tebal */
+            background: linear-gradient(to right, #e0e0e0, var(--secondary-color), #e0e0e0); /* Gradien abu-kuning */
+            border-radius: 3px;
             z-index: 1; 
         }
         .step {
@@ -293,36 +300,150 @@
             position: relative;
             z-index: 2; 
             padding: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Efek angkat saat hover */
+        .step:hover {
+            transform: translateY(-8px);
         }
         .step-icon {
             width: 80px; 
             height: 80px;
-            background-color: var(--primary-color);
+            /* Ubah latar belakang ikon menjadi gradien */
+            background: linear-gradient(135deg, var(--primary-color) 0%, #007bff 100%); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto 15px auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: 5px solid var(--bg-white); 
-            transition: transform 0.3s;
+            /* Bayangan ikon lebih dramatis */
+            box-shadow: 0 8px 25px rgba(0, 74, 153, 0.4); 
+            border: 6px solid var(--bg-white); /* Border sedikit lebih tebal */
+            transition: all 0.3s;
         }
-        .step:hover .step-icon {
-            transform: scale(1.1);
+        .step:nth-child(even) .step-icon {
+            /* Mengubah warna ikon genap menjadi secondary color untuk variasi */
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #ffc107 100%);
+            box-shadow: 0 8px 25px rgba(255, 183, 0, 0.5); 
         }
         .step-icon i {
             color: white;
             font-size: 2.2em;
+            transition: all 0.5s;
         }
-        .step h4 {
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 5px;
+        
+        /* Animasi: Hanya ikon gear (langkah 3) yang berputar */
+        .step:nth-child(3) .step-icon i {
+            animation: rotate-icon 4s infinite linear;
+        }
+        @keyframes rotate-icon {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Animasi KHUSUS untuk Langkah 4 (Quality Check) */
+        .step:nth-child(4) .step-icon i {
+            animation: pulse-check 2s infinite ease-in-out;
+        }
+        @keyframes pulse-check {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); color: var(--success-color); } /* Berdetak dan highlight warna */
+            100% { transform: scale(1); }
         }
 
-        /* Responsive untuk Process Flow */
+        .step h4 {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            margin-top: 15px; 
+        }
+
+
+        /* ===================================================================
+           DELIVERY PROMO STYLING 
+        =================================================================== */
+        .delivery-promo {
+            background: linear-gradient(90deg, var(--primary-color) 0%, #0060c0 100%); 
+            color: white; 
+            padding: 50px 30px; 
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 74, 153, 0.5); 
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .delivery-promo h3 {
+            font-size: 2.2em; 
+            font-weight: 800;
+            color: var(--secondary-color); 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .delivery-promo p {
+            font-size: 1.2em; 
+            max-width: 700px;
+            margin: 15px auto 30px auto;
+            color: #f0f0f0; 
+        }
+        .delivery-promo .delivery-icon-large {
+            font-size: 4.5em; 
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
+            animation: pulse-icon 2s infinite, bounce-icon 3s ease-in-out infinite; 
+        }
+        @keyframes pulse-icon {0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }}
+        @keyframes bounce-icon {0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); }}
+        .delivery-promo a {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--success-color); 
+            color: white !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(32, 142, 67, 0.5);
+        }
+        .delivery-promo a:hover {
+            background-color: #179c3f;
+            transform: scale(1.05);
+        }
+
+
+        /* ===================================================================
+           RESPONSIVE MOBILE DESIGN (Max 768px)
+        =================================================================== */
         @media (max-width: 768px) {
+            
+            /* Global Adjustments */
+            .container { margin: 20px auto; padding: 0 15px; }
+            .section { padding: 30px 20px; }
+            .section h2 { font-size: 1.8em; margin-bottom: 30px; }
+            
+            /* Navbar Mobile Adjustment */
+            .navbar-content { flex-direction: column; align-items: flex-start; }
+            .nav-links { margin-top: 10px; flex-wrap: wrap; justify-content: flex-start; }
+            .nav-links a { margin: 5px 10px 5px 0; font-size: 0.9em; }
+            
+            /* Header Adjustment */
+            .header-parallax { padding: 80px 0; }
+            .header-content h1 { font-size: 1.8em; }
+            .header-content p { font-size: 1em; }
+
+            /* Delivery Promo Adjustment */
+            .delivery-promo { padding: 30px 15px; }
+            .delivery-promo h3 { font-size: 1.6em; }
+            .delivery-promo p { font-size: 1em; }
+            .delivery-promo a { padding: 12px 30px; font-size: 1em; }
+            
+            /* Price Table Adjustment */
+            .price-tabs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+            .price-tab-button { flex: 1 1 45%; margin: 5px 0; }
+            .price-content { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .price-content table { min-width: 500px; }
+
+            /* Process Flow Adjustment: Ubah menjadi vertikal di mobile */
             .process-flow {
                 flex-direction: column;
                 padding-top: 0;
@@ -331,9 +452,10 @@
                 top: 0;
                 left: 30px; 
                 bottom: 0;
-                width: 4px;
+                width: 6px; /* Lebih tebal */
                 right: auto;
                 height: 100%;
+                background: linear-gradient(to bottom, #e0e0e0, var(--secondary-color), #e0e0e0); /* Gradien vertikal */
             }
             .step {
                 flex-basis: 100%;
@@ -347,71 +469,25 @@
                 margin: 0;
                 flex-shrink: 0; 
             }
-        }
-        
-        /* DELIVERY PROMO STYLING */
-        .delivery-promo {
-            background: linear-gradient(90deg, var(--secondary-color) 0%, #ffc430 100%); 
-            color: var(--text-color);
-            padding: 50px 30px; 
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 183, 0, 0.4); 
-            margin-bottom: 40px;
-        }
+            
+            /* Testimonial Adjustment */
+            .testimonial-grid { flex-direction: column; gap: 15px; }
+            .testimonial-card { max-width: 100%; }
 
-        .delivery-promo h3 {
-            font-size: 2em; 
-            font-weight: 800;
-            margin-top: 0;
-            color: var(--primary-color);
+            /* Pengetahuan Wajib Layout */
+            div[style*="display: flex;"] { flex-direction: column; }
+            div[style*="border-left: 5px solid"] { margin-bottom: 15px; }
+            
+            /* FAB WA */
+            .fab { width: 50px; height: 50px; line-height: 50px; font-size: 1.8em; }
         }
-
-        .delivery-promo p {
-            font-size: 1.1em;
-            max-width: 700px;
-            margin: 15px auto 30px auto;
-            color: #333;
-        }
-
-        .delivery-promo .delivery-icon-large {
-            font-size: 4em;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: block;
-            animation: pulse-icon 2s infinite; 
-        }
-        
-        @keyframes pulse-icon {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .delivery-promo a {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: var(--primary-color);
-            color: white !important;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: background-color 0.3s, transform 0.3s;
-            text-transform: uppercase;
-        }
-
-        .delivery-promo a:hover {
-            background-color: #003a7a;
-            transform: translateY(-2px);
-        }
-
-        /* FAB WA */
-        .fab {
-            transition: transform 0.3s ease;
-        }
-        .fab:hover {
-            transform: scale(1.15); 
-        }
-
+        /* ===================================================================
+           FOOTER & FAB WA STYLES
+        =================================================================== */
+        footer {background-color: var(--primary-color); color: white; padding: 20px 0; font-size: 0.9em; text-align: center; margin-top: 40px; border-radius: 15px;}
+        .fab-container {position: fixed; bottom: 20px; right: 20px; z-index: 1000;}
+        .fab {display: block; width: 60px; height: 60px; background-color: var(--success-color); color: white; border-radius: 50%; text-align: center; line-height: 60px; font-size: 2.2em; box-shadow: 0 4px 15px rgba(32, 142, 67, 0.6); transition: transform 0.3s ease;}
+        .fab:hover {transform: scale(1.15); }
     </style>
 </head>
 <body>
@@ -430,6 +506,7 @@
             <a href="#" class="navbar-logo">
                 <i class="fa-solid fa-screwdriver-wrench"></i> <span class="logo-brand">SURYA</span> TEKNISI
             </a>
+
             <div class="nav-links">
                 <a href="#layanan">Layanan</a>
                 <a href="#harga">Harga</a>
@@ -450,7 +527,7 @@
     </div>
 
     <div class="container">
-        <section class="warranty-box" data-aos="zoom-in" style="text-align: center;">
+        <section class="warranty-box" data-aos="zoom-in">
             <h3>⭐ Jaminan Garansi Resmi Hingga 90 Hari!</h3>
             <p>Kami hanya menggunakan suku cadang berkualitas dan memberikan ketenangan pikiran dengan garansi purna jual.</p>
         </section>
@@ -485,13 +562,13 @@
 
         </section>
 
-        <section id="delivery" class="delivery-promo" data-aos="flip-down" style="text-align: center;">
-            <i class="fa-solid fa-truck-pickup delivery-icon-large"></i>
-            <h3>🛵 FREE ANTAR JEMPUT & ANTAR BALIK DI SURABAYA!</h3>
-            <p>Hemat waktu dan biaya! Kami akan menjemput perangkat Anda dan mengantarkannya kembali setelah service selesai. **Layanan Cepat dan Tanpa Biaya Tambahan (GRATIS)!**</p>
+        <section id="delivery" class="delivery-promo" data-aos="flip-down">
+            <i class="fa-solid fa-truck-fast delivery-icon-large"></i> 
+            <h3>🚀 EKSLUSIF SURABAYA! JEMPUT & ANTAR BALIK 100% GRATIS!</h3>
+            <p>Tidak perlu repot keluar rumah! Teknisi kami akan menjemput perangkat Anda dengan aman dan mengantarkannya kembali setelah service selesai. **Hemat Waktu, Tanpa Biaya Tambahan, Tinggal Duduk Santai!**</p>
             <a href="https://wa.me/6285198331549?text=Saya%20ingin%20memanfaatkan%20layanan%20antar%20jemput%20gratis%20untuk%20service%20HP%20di%20Surabaya." 
                target="_blank">
-               <i class="fa-brands fa-whatsapp"></i> Jadwalkan Penjemputan Sekarang
+               <i class="fa-brands fa-whatsapp"></i> Klik untuk Jadwalkan Penjemputan Cepat
             </a>
         </section>
 
@@ -508,8 +585,8 @@
             <div id="iphone" class="price-content active" data-aos="fade-up">
                 <table><thead><tr><th colspan="2">Apple iPhone (LCD, Baterai & Face ID)</th></tr></thead>
                     <tbody>
-                        <tr><td>Ganti LCD iPhone 15 Pro Max</td><td class="price-highlight">Mulai Rp 3.800.000</td></tr>
-                        <tr><td>Ganti LCD iPhone 13 Pro</td><td class="price-highlight">Mulai Rp 2.200.000</td></tr>
+                        <tr><td>Ganti LCD iPhone 15 Pro Max</td><td class="price-highlight">Mulai Rp 1.100.000</td></tr>
+                        <tr><td>Ganti LCD iPhone 13 Pro</td><td class="price-highlight">Mulai Rp 550.000</td></tr>
                         <tr><td>Ganti LCD iPhone 11</td><td class="price-highlight">Rp 450.000</td></tr>
                         <tr><td>Ganti Baterai iPhone 14</td><td class="price-highlight">Rp 550.000</td></tr>
                         <tr><td>Ganti Baterai iPhone 12</td><td class="price-highlight">Rp 400.000</td></tr>
@@ -520,11 +597,11 @@
             <div id="android" class="price-content" data-aos="fade-up">
                  <table><thead><tr><th colspan="2">Android Premium (Samsung, Xiaomi, dll.)</th></tr></thead>
                  <tbody>
-                    <tr><td>Ganti LCD Samsung S23 Ultra</td><td class="price-highlight">Mulai Rp 2.800.000</td></tr>
-                    <tr><td>Ganti LCD Samsung S21 Ultra</td><td class="price-highlight">Mulai Rp 2.500.000</td></tr>
-                    <tr><td>Perbaikan/Ganti Kaca Belakang (Backdoor)</td><td class="price-highlight">Mulai Rp 300.000</td></tr>
-                    <tr><td>Ganti Baterai Xiaomi 12 Pro</td><td class="price-highlight">Mulai Rp 550.000</td></tr>
-                    <tr><td>Ganti Baterai Samsung A Series</td><td class="price-highlight">Mulai Rp 350.000</td></tr>
+                    <tr><td>Ganti LCD Samsung S23 Ultra</td><td class="price-highlight">Mulai Rp 2.000.000</td></tr>
+                    <tr><td>Ganti LCD Samsung S21 Ultra</td><td class="price-highlight">Mulai Rp 1.500.000</td></tr>
+                    <tr><td>Perbaikan/Ganti Kaca Belakang (Backdoor)</td><td class="price-highlight">Mulai Rp 100.000</td></tr>
+                    <tr><td>Ganti Baterai Xiaomi 12 Pro</td><td class="price-highlight">Mulai Rp 200.000</td></tr>
+                    <tr><td>Ganti Baterai Samsung A Series</td><td class="price-highlight">Mulai Rp 150.000</td></tr>
                  </tbody>
                  </table>
             </div>
@@ -585,7 +662,7 @@
             </div>
         </section>
         
-        <section class="section" data-aos="fade-up" style="text-align: center;">
+        <section class="section" data-aos="fade-up">
              <h2>🧠 Pengetahuan Wajib Pengguna HP</h2>
             <div style="display: flex; gap: 25px; flex-wrap: wrap; justify-content: center;">
                 <div style="flex: 1; padding: 25px; border-radius: 8px; background-color: #f7f9fc; border-left: 5px solid var(--primary-color); min-width: 300px; text-align: left;" data-aos="fade-right">
@@ -601,12 +678,12 @@
             </div>
         </section>
 
-        <footer id="kontak" data-aos="fade-up" style="text-align: center;">
-            <p>Surya Teknisi &copy; 2025 | Keahlian, Kejujuran, dan Garansi adalah Prioritas Kami.</p>
-            <p>Hubungi Kami: <a href="tel:085198331549" style="color: var(--primary-color); text-decoration: none;">0851 9833 1549</a> | Alamat Workshop: Surabaya</p>
-        </footer>
-
-    </div>
+    </div> 
+    
+    <footer id="kontak" data-aos="fade-up">
+        <p>Surya Teknisi &copy; 2025 | Keahlian, Kejujuran, dan Garansi adalah Prioritas Kami.</p>
+        <p>Hubungi Kami: <a href="tel:085198331549">0851 9833 1549</a> | Alamat Workshop: Surabaya</p>
+    </footer>
 
     <div class="fab-container">
         <a href="https://wa.me/6285198331549" target="_blank" class="fab"><i class="fa-brands fa-whatsapp"></i></a>
@@ -633,8 +710,8 @@
         };
 
         function openWhatsApp(serviceId) {
-            const message = encodeURIComponent(serviceMap[serviceId]);
             const waNumber = '6285198331549'; 
+            const message = encodeURIComponent(serviceMap[serviceId]);
             window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
         }
 
